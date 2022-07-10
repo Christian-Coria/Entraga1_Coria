@@ -1,0 +1,14 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+    
+    <for action="" method="POST">
+    {% csrf_token %}
+
+    {{ form_reparacion.as_table }}
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+{% endblock %}

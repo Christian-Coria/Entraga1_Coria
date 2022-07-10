@@ -2,7 +2,7 @@
 
 {% block cuerpo %}
     
-    <for action="" method="POST">
+    <form action="" method="POST">
     {% csrf_token %}
 
     {{ mi_reparacion.as_table }}

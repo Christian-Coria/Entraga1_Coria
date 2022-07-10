@@ -1,11 +1,12 @@
+
 {% extends 'mi_web/base.html' %}
 
 {% block cuerpo %}
     
-    <form action="" method="POST">
+    <form action="" method="GET">
     {% csrf_token %}
 
-    {{ form_repuesto.as_table }}
+    {{ busqueda_proveedor }}
 
         <input type="submit", value="Enviar">
 

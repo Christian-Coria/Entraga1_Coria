@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mi_web.models import Equipo, Reparacion,Cliente
-admin.site.register(Equipo)
+from mi_web.models import Reparacion, Repuestos,Proveedores
 admin.site.register(Reparacion)
-admin.site.register(Cliente)
+admin.site.register(Repuestos)
+admin.site.register(Proveedores)

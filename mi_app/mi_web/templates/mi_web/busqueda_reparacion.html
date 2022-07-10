@@ -1,0 +1,14 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+
+<form action="" method="GET">
+    {% csrf_token %}
+
+    {{busqueda_reparacion}}
+    <input type="submit", value="Enviar">
+
+</form>
+
+    
+{% endblock %}

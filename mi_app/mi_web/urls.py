@@ -5,10 +5,9 @@ from mi_web.views import (registrando_proveedores,
  formulario_repuestos,form_busc_proveedor,form_busc_reparacion,form_busc_repuesto)
 
 urlpatterns = [
-   path('lista_reparaciones/', registrando_reparaciones),
-   path('lista_repuestos/', registrando_repuestos),
-   #path('reparaciones/', reparando),
-   path('lista_proveedores/',registrando_proveedores),
+   path('listando_repa/', registrando_reparaciones),
+   path('listando_repu/', registrando_repuestos),
+   path('listando_prov/',registrando_proveedores),
    path('proveedores/',formulario_proveedores),
    path('repuestos/',formulario_repuestos),
    path('busqueda_proveedor/',form_busc_proveedor),

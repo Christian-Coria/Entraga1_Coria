@@ -1,0 +1,20 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+    <br>
+    <h1> Sistema de Muestra de PROVEEDORES en Base de Datos </h1>
+    <br>
+    
+
+    <ul>
+        {% for proveedor in lista_proveedores %}
+            <li>
+                Nombre: {{proveedor.nombre}}
+                Telefono: {{proveedor.telefono}} 
+            </li> 
+        {% endfor %}
+        </ul>
+
+    
+<br>
+{% endblock %}

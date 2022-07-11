@@ -1,0 +1,22 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+    <br>
+    <h1> Sistema de Muestra de repuestoES en Base de Datos </h1>
+    <br>
+    
+
+    <ul>
+        {% for repuesto in lista_repuestos %}
+            <li>Clase: {{repuesto.clase}} 
+                Marca: {{repuesto.marca}}
+                Modelo: {{repuesto.modelo}} 
+                Precio: {{repuesto.precio}
+                 
+            </li> 
+        {% endfor %}
+        </ul>
+
+    
+<br>
+{% endblock %}

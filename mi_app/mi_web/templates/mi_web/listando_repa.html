@@ -1,0 +1,26 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+    <br>
+    <h1> Sistema de Muestra de REPARACIONES en Base de Datos </h1>
+    <br>
+    
+
+    <ul>
+        {% for reparacion in lista_reparaciones %}
+            <li> 
+                Nombre: {{reparacion.nombre}} 
+                Apellido: {{reparacion.apellido}}
+                Telefono: {{reparacion.telefono}} 
+                Email: {{reparacion.email}
+                Equipo: {{reparacion.equipo}} 
+                Falla: {{reparacion.falla}}
+                Tipo de Reparacion: {{reparacion.tipo_rep}}
+                Estado: {{reparacion.estado}}
+            </li> 
+        {% endfor %}
+        </ul>
+
+    
+<br>
+{% endblock %}

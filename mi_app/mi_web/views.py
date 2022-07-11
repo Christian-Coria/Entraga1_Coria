@@ -13,13 +13,13 @@ def registrando_proveedores(request):
     context = {}
     context['lista_proveedores'] = Proveedores.objects.all()
 
-    return render(request,'mi_web/proveedores.html',context)
+    return render(request,'mi_web/listando_prov.html',context)
     
 def registrando_reparaciones(request):
     context = {}
     context['lista_reparaciones'] = Reparacion.objects.all()
 
-    return render(request,'mi_web/reparaciones.html',context)
+    return render(request,'mi_web/listando_repa.html',context)
 
 
 def formulario_reparacion(request):
@@ -27,7 +27,7 @@ def formulario_reparacion(request):
         pass
     else:
         form_reparacion = Formulario_reparacion()
-        return render (request, "mi_web/ordenes.html",{"form_reparacion":form_reparacion})
+        return render (request, "mi_web/reparaciones.html",{"form_reparacion":form_reparacion})
 
 def formulario_proveedores(request):
     if request.method == "POST":
@@ -56,6 +56,7 @@ def form_busc_repuesto(request):
 
 def form_busc_proveedor(request):
     busqueda_proveedor = Busqueda_proveedor()
+    
 
     if request.GET:
         proveedor = Proveedores.objects.filter(nombre=busqueda_proveedor["criterio"]).all()

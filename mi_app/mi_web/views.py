@@ -7,7 +7,7 @@ def registrando_repuestos(request):
     context = {}
     context['lista_repuestos'] = Repuestos.objects.all()
 
-    return render(request,'mi_web/repuestos.html',context)
+    return render(request,'mi_web/listando_repu.html',context)
 
 def registrando_proveedores(request):
     context = {}

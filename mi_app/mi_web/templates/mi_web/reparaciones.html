@@ -1,7 +1,9 @@
 {% extends 'mi_web/base.html' %}
 
 {% block cuerpo %}
-    
+    <br>
+    <h1> Sistema de Carga de ORDENES de REPARACION en Base de Datos </h1>
+    <br>
     <form action="" method="POST">
     {% csrf_token %}
 
@@ -10,5 +12,5 @@
         <input type="submit", value="Enviar">
 
     </form>
-
+<br>
 {% endblock %}

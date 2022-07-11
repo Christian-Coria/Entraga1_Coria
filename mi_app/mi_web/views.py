@@ -3,19 +3,19 @@ from mi_web.models import Reparacion, Repuestos,Proveedores
 from mi_web.forms import (Formulario_reparacion, Formulario_proveedores,
  Formulario_repuestos,Busqueda_repuesto,Busqueda_proveedor,Busqueda_reparacion)
 
-def registrando_cliente(request):
+def registrando_repuestos(request):
     context = {}
-    context['lista_clientes'] = Cliente.objects.all()
+    context['lista_repuestos'] = Repuestos.objects.all()
 
-    return render(request,'mi_web/clientes.html',context)
+    return render(request,'mi_web/repuestos.html',context)
 
-def registrando_equipos(request):
+def registrando_proveedores(request):
     context = {}
-    context['lista_equipos'] = Equipo.objects.all()
+    context['lista_proveedores'] = Proveedores.objects.all()
 
-    return render(request,'mi_web/equipos.html',context)
+    return render(request,'mi_web/proveedores.html',context)
     
-def reparando(request):
+def registrando_reparaciones(request):
     context = {}
     context['lista_reparaciones'] = Reparacion.objects.all()
 
@@ -44,30 +44,33 @@ def formulario_repuestos(request):
         return render (request, "mi_web/repuestos.html",{"form_repuesto":form_repuesto})
 
 def form_busc_repuesto(request):
-    if request.GET:
-        busqueda_repuesto = Busqueda_repuesto(request.GET)
-        criterio = Busqueda_repuesto.cleaned_data
-        repuesto = Repuestos.objects.filter(nombre=criterio).all()
-        return render(request,'mi_app/busqueda_repuestos.html',{"repuesto":repuesto})
     busqueda_repuesto = Busqueda_repuesto()
-    return render(request,'mi_web/busqueda_repuestos.html',{"busqueda_repuesto": Busqueda_repuesto})
+
+    if request.GET:
+        repuesto = Repuestos.objects.filter(nombre=busqueda_repuesto["criterio"]).all()
+    
+    else:
+        repuesto=[]
+    
+    return render(request,'mi_web/busqueda_repuestos.html',{"busqueda_repuesto": Busqueda_repuesto,"repuesto":repuesto} )
 
 def form_busc_proveedor(request):
-    if request.GET:
-        busqueda_proveedor = Busqueda_proveedor(request.GET)
-        criterio = Busqueda_proveedor.cleaned_data
-        proveedor = Proveedores.objects.filter(nombre=criterio).all()
-        return render(request,'mi_app/busqueda_proveedor.html',{"proveedor":proveedor})
     busqueda_proveedor = Busqueda_proveedor()
-    return render(request,'mi_web/busqueda_proveedor.html',{"busqueda_proveedor": Busqueda_proveedor})
+
+    if request.GET:
+        proveedor = Proveedores.objects.filter(nombre=busqueda_proveedor["criterio"]).all()
+       
+    else:
+        proveedor =[]
+    return render(request,'mi_web/busqueda_proveedor.html',{"busqueda_proveedor": Busqueda_proveedor,"proveedor":proveedor})
 
 def form_busc_reparacion(request):
-    if request.GET:
-        busqueda_reparacion = Busqueda_reparacion(request.GET)
-        criterio = Busqueda_reparacion.cleaned_data
-        reparacion = Reparacion.objects.filter(nombre=criterio).all()
-        return render(request,'mi_app/busqueda_reparacion.html',{"reparacion":reparacion})
     busqueda_reparacion = Busqueda_reparacion()
-    return render(request,'mi_web/busqueda_reparacion.html',{"busqueda_reparacion": Busqueda_reparacion})
 
+    if request.GET:
+        reparacion = Reparacion.objects.filter(nombre=busqueda_reparacion["criterio"]).all()
+    else:
+        reparacion =[]
+    return render(request,'mi_web/busqueda_reparacion.html',{"busqueda_reparacion": Busqueda_reparacion, "reparacion":reparacion})
 
+ 

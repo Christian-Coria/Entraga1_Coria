@@ -20,7 +20,7 @@ class Repuestos(models.Model):
     precio = models.IntegerField()
     
     def __str__(self):
-        return f'Clase {self.clase}: {self.marca} {self.modelo} {self.falla} {self.precio}'
+        return f'Clase {self.clase}: {self.marca} {self.modelo} {self.precio}'
 
 class Proveedores(models.Model):
     nombre = models.CharField(max_length=40)

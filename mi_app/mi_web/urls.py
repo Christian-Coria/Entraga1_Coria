@@ -8,6 +8,7 @@ urlpatterns = [
    path('listando_repa/', registrando_reparaciones),
    path('listando_repu/', registrando_repuestos),
    path('listando_prov/',registrando_proveedores),
+   path('reparaciones/',formulario_reparacion),
    path('proveedores/',formulario_proveedores),
    path('repuestos/',formulario_repuestos),
    path('busqueda_proveedor/',form_busc_proveedor),

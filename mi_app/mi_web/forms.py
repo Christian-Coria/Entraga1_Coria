@@ -1,13 +1,11 @@
 from django import forms
-    
-class Formulario_reparacion(forms.Form):
 
-    nombre = forms.CharField(max_length=40)
-    apellido = forms.CharField(max_length=40)
-    telefono=forms.IntegerField()
-    email=forms.EmailField()
+
+class Formulario_reparacion(forms.Form):
     equipo = forms.CharField(max_length=40)
     falla = forms.CharField(max_length=40)
+    tipo_rep = forms.CharField(max_length=40)
+    estado = forms.CharField(max_length=40)
 
 class Formulario_repuestos(forms.Form):
     clase = forms.CharField(max_length=40)
@@ -19,7 +17,11 @@ class Formulario_proveedores(forms.Form):
     nombre = forms.CharField(max_length=40)
     telefono = forms.CharField(max_length=40)
 
-
+class Formulario_cliente(forms.Form):
+    nombre = forms.CharField(max_length=40)
+    apellido = forms.CharField(max_length=40)
+    telefono=forms.IntegerField()
+    email=forms.EmailField()
 
 class Busqueda_reparacion(forms.Form):
     criterio = forms.CharField()

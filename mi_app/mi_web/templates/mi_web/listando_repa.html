@@ -4,21 +4,36 @@
     <br>
     <h1> Sistema de Muestra de REPARACIONES en Base de Datos </h1>
     <br>
-    
+    <lo> 
+        Numero de Registros de Reparaciones: {{nro_reparaciones}} 
+                             
+    </lo>
 
-    <ul>
+    <ul>    <!--ul es una lista no ordenada -->
         {% for reparacion in lista_reparaciones %}
-            <li> 
-                Nombre: {{reparacion.nombre}} 
-                Apellido: {{reparacion.apellido}}
-                Telefono: {{reparacion.telefono}} 
-                Email: {{reparacion.email}}
-                Equipo: {{reparacion.equipo}} 
-                Falla: {{reparacion.falla}}
-                Tipo de Reparacion: {{reparacion.tipo_rep}}
+            <li> <!-- li es list item -->
+                equipo: {{reparacion.equipo}} 
+                falla: {{reparacion.falla}}
+                Tipo : {{reparacion.tipo_rep}} 
                 Estado: {{reparacion.estado}}
+                <a href="detalle_reparacion/{{reparacion.id}}">Ver Detalle</a>
             </li> 
+            <br>
+            
         {% endfor %}
+    </ul>
+    <lo> 
+        <ul>    <!--ul es una lista no ordenada -->
+            {% for cliente in lista_clientes %}
+                <li> <!-- li es list item -->
+                    id Cliente: {{cliente.id}} 
+                    Nombre: {{cliente.nombre}}
+                    Apellido: {{cliente.apellido}}
+                    Telefono: {{cliente.telefono}} 
+                    Email: {{cliente.email}}
+                    
+                </li> 
+            {% endfor %}
         </ul>
 
     

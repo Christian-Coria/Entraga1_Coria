@@ -5,28 +5,20 @@
     <br>
     <h1> Sistema de Busqueda de PROVEEDORES en Base de Datos </h1>
     <br>
-    {% if busqueda_proveedor %}
+    
         <form action="" method="GET">
-        {% csrf_token %}
+        
 
-            {{ busqueda_proveedor }}
+            {{ busqueda_proveedores }}
 
             <input type="submit", value="Enviar">
     
         </form>
-        <h6> (Nota: Si su Busqueda no se encuentra en Base de Datos, no se Mostraran Resultados.) </h6>
-    {% else %}
-        {% if busqueda_proveedor %}
-        <ul>
-            {% for proveedor in busqueda_proveedor %}
-                <li>{{proveedor.nombre}}</li>
-            {% endfor %}
-        </ul>
-        {% else %}
-            <h1> No Hay Resultados con ese Criterio </h1>
-        {% endif %}
+        
 
-    {% endif %}
+    
 
-    <br>
+    
 {% endblock %}
+
+<!--/mi_web/busqueda_proveedor   {% csrf_token %}   {% if busqueda_proveedores %}     {% endif %}  -->

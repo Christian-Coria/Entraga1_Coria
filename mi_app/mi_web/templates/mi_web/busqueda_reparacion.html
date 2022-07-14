@@ -4,11 +4,17 @@
     <br>
     <h1> Sistema de Busqueda de REPARACIONES en Base de Datos  </h1>
     <br>
-<form action="" method="GET">
-    {% csrf_token %}
-
-    {{busqueda_reparacion}}
-    <input type="submit", value="Enviar">
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        {{busqueda_reparacion}}
+        
+        <button type="submit">enviar</button>
+        
+        </form>
+        
+    
+    
     
 </form>
 <h6> (Nota: Si su Busqueda no se encuentra en Base de Datos, no se Mostraran Resultados.) </h6>

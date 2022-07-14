@@ -1,0 +1,13 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+    <br>
+    <h1> Sistema de Muestra de CLIENTES en Base de Datos </h1>
+    <br>
+    <h1> Detalle de Orden </h1>
+    <div>apellido: {{cliente.apellido}}</div>
+    <div>telefono: {{cliente.telefono}}</div>
+    <div>email: {{cliente.email}}</div>
+    <div>orden de reparacion: {{cliente.id}}</div>
+<br>
+{% endblock %}

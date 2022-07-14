@@ -1,0 +1,17 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+    
+    
+
+    <h1> Sistema de Muestra de ORDENES de REPARACION en Base de Datos </h1>
+    <br>
+    <h1> Detalle de Orden </h1>
+    <div>id_reparacion: {{reparacion.id}}</div>
+    <div>equipo: {{reparacion.equipo}}</div>
+    <div>falla: {{reparacion.falla}}</div>
+    <div>tipo de reparacion: {{reparacion.tipo_rep}}</div>
+    <div>estado: {{reparacion.estado}}</div>
+    <div> Reparacion: {{reparacion}}</div>
+<br>
+{% endblock %}

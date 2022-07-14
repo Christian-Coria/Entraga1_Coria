@@ -1,0 +1,23 @@
+{% extends 'mi_web/base.html' %}
+
+{% block cuerpo %}
+    <br>
+    <h1> Sistema de Muestra de CLIENTES en Base de Datos </h1>
+    <br>
+    <lo> 
+    <ul>    <!--ul es una lista no ordenada -->
+        {% for cliente in lista_clientes %}
+            <li> <!-- li es list item -->
+                id Cliente: {{cliente.id}} 
+                Nombre: {{cliente.nombre}}
+                Apellido: {{cliente.apellido}}
+                Telefono: {{cliente.telefono}} 
+                Email: {{cliente.email}}
+                <a href="detalle_cliente/{{cliente.id}}">Ver Detalle</a>
+            </li> 
+        {% endfor %}
+    </ul>
+
+    
+<br>
+{% endblock %}

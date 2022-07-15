@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.urls import path
 from mi_web.views import (registrando_proveedores,
  registrando_repuestos, registrando_reparaciones,formulario_reparacion,formulario_proveedores,
- formulario_repuestos,form_busc_proveedor,form_busc_reparacion,
- form_busc_repuesto,detalle_reparacion, detalle_cliente,registrando_clientes,actualizar_reparacion,confirmar_borrar_reparacion,borrar_reparacion,leer_reparacion)
+ formulario_repuestos,busc_prov,busc_repa,
+ busc_repu,detalle_reparacion, detalle_cliente,registrando_clientes,actualizar_reparacion,confirmar_borrar_reparacion,borrar_reparacion,leer_reparacion)
 
 urlpatterns = [
    path('listando-repa/', registrando_reparaciones),
@@ -13,9 +13,9 @@ urlpatterns = [
    path('reparaciones/',formulario_reparacion),
    path('proveedores/',formulario_proveedores),
    path('repuestos/',formulario_repuestos),
-   path('busqueda-proveedor/',form_busc_proveedor),
-   path('busqueda-reparacion/',form_busc_reparacion),
-   path('busqueda-repuestos/',form_busc_repuesto),
+   path('busqueda-proveedor/',busc_prov),
+   path('busqueda-reparacion/',busc_repa),
+   path('busqueda-repuestos/',busc_repu),
    path('detalle/<int:id>/reparacion/',detalle_reparacion,name="detalle-reparacion"),
    path('detalle/<int:id>cliente',detalle_cliente, name="detalle-cliente"),
    path('reparacion/<pk>/actualizar',actualizar_reparacion),

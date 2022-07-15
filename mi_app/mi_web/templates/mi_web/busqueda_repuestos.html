@@ -1,17 +1,23 @@
 {% extends 'mi_web/base.html' %}
 
 {% block cuerpo %}
-    <br>
-    <h1> Sistema de Busqueda de REPUESTOS en Base de Datos </h1>
-    <br>
-    <form action="" method="GET">
-    
+<h1>BUSQUEDA DE repuestos POR NOMBRE</h1>
 
-        {{ busqueda_repuestos }}
 
-        <input type="submit", value="Enviar">
+<form action="" method="GET">
+    {{busqueda_repuest}}
+    <button type="submit">Buscar</button>
+</form>
 
-    </form>
-    <h6> (Nota: Si su Busqueda no se encuentra en Base de Datos, no se Mostraran Resultados.) </h6>
-<br>
+{% if repuestos %}
+    <ul>
+    {% for repuesto in repuestos %}
+        <li>{{repuesto.clase}}</li>   
+    {% endfor %}
+    </ul>
+{% else %}
+    <h1> No hay repuestos con ese criterio !!</h1>
+
+{% endif %}
+
 {% endblock %}

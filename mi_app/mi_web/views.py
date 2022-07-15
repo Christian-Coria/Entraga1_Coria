@@ -69,8 +69,6 @@ def formulario_proveedores(request):
         return render (request, "mi_web/proveedores.html",{"form_proveedor":form_proveedor})
 
 
-
-
 def formulario_repuestos(request):
     if request.method=="POST":
         form_repuesto = Formulario_repuestos(request.POST)
@@ -80,42 +78,48 @@ def formulario_repuestos(request):
             repuesto= Repuestos(clase=informacion['clase'],marca=informacion['marca'],modelo=informacion['modelo'],precio=informacion['precio'])
             repuesto.save()
             return render (request, "mi_web/repuestos.html")
+
     else:
-         form_repuesto = Formulario_repuestos()
-         return render (request, "mi_web/repuesto.html",{"form_repuesto":form_repuesto})
+        form_repuesto = Formulario_repuestos()
+        return render (request, "mi_web/repuestos.html",{"form_repuesto":form_repuesto})
 
 
-def form_busc_repuesto(request):
-    if request.GET:
-        busqueda_repuestos = Formulario_repuestos(request.GET)
-        if busqueda_repuestos.is_valid():
-            repuestos = Repuestos.objects.filter(nombre=busqueda_repuestos.cleaned_data.get("criterio")).all() 
-            return render(request, "mi_app/busqueda_repuestos.html", {"busqueda_repuestos": busqueda_repuestos, "repuestos": repuestos})
 
-    return render(request, "mi_app/busqueda_repuestos.html", {"busqueda_repuestos": busqueda_repuestos, "repuestos": repuestos})
 
-def form_busc_proveedor(request):
-    if request.GET:
-        busqueda_proveedores = Busqueda_proveedor(request.GET)
-        criterio = Busqueda_proveedor.cleaned_data
-        
-        proveedor = Proveedores.objects.filter(nombre=criterio).all()
-        return render(request, "mi_web/busqueda_proveedor.html", {"proveedor": proveedor})
+def busc_repu(request):
+    busqueda_repuest = Busqueda_repuesto()
 
-    busqueda_proveedores =Busqueda_proveedor()
-    return render(request, "mi_web/busqueda_proveedor.html",{"busqueda_proveedores":busqueda_proveedores})
-
+    if request.GET:    
+        busqueda_repuest = Busqueda_repuesto(request.GET)
+        if busqueda_repuest.is_valid():
+            repuestos = Repuestos.objects.filter(clase=busqueda_repuest.cleaned_data.get("criterio")).all()
+            return render(request, "mi_web/busqueda_repuestos.html", {"busqueda_repuest": busqueda_repuest, "repuestos": repuestos})
     
+    
+    return render(request, "mi_web/busqueda_repuestos.html", {"busqueda_repuest": busqueda_repuest})
+        
+def busc_prov(request):
+    busqueda_pro = Busqueda_proveedor()
 
+    if  request.GET: 
+        busqueda_pro = Busqueda_proveedor(request.GET)
+        if busqueda_pro.is_valid():
+            proveed = Proveedores.objects.filter(nombre=busqueda_pro.cleaned_data.get("criterio")).all() 
+            return render(request, "mi_web/busqueda_proveedor.html", {"busqueda_pro": busqueda_pro, "proveed": proveed})
 
-def form_busc_reparacion(request):
-    if request.GET:
-        busqueda_reparaciones = formulario_reparacion(request)(request.GET)
-        if busqueda_reparaciones.is_valid():
-            reparacion = Reparacion().objects.filter(nombre=busqueda_reparaciones.cleaned_data.get("criterio")).all() 
-            return render(request, "mi_app/busqueda_reparacion.html", {"busqueda_reparacion": busqueda_reparaciones, "reparacion": reparacion})
+    return render(request, "mi_web/busqueda_proveedor.html", {"busqueda_pro": busqueda_pro})
 
-    return render(request, "mi_app/busqueda_reparacion.html", {"busqueda_reparacion": busqueda_reparaciones, "reparacion": reparacion})
+def busc_repa(request):
+    busqueda_repara = Busqueda_reparacion()
+
+    if request.GET:    
+        busqueda_repara = Busqueda_reparacion(request.GET)
+        if busqueda_repara.is_valid():
+            reparaciones = Reparacion.objects.filter(equipo=busqueda_repara.cleaned_data.get("criterio")).all()
+            return render(request, "mi_web/busqueda_reparacion.html", {"busqueda_repara": busqueda_repara, "reparaciones": reparaciones})
+    
+    
+    return render(request, "mi_web/busqueda_reparacion.html", {"busqueda_repara": busqueda_repara})
 
  
 def actualizar_reparacion(request,pk):

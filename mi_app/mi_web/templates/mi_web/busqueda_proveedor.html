@@ -2,23 +2,24 @@
 {% extends 'mi_web/base.html' %}
 
 {% block cuerpo %}
-    <br>
-    <h1> Sistema de Busqueda de PROVEEDORES en Base de Datos </h1>
-    <br>
-    
-        <form action="" method="GET">
-        
+<h1>BUSQUEDA DE Proveedor POR NOMBRE</h1>
 
-            {{ busqueda_proveedores }}
 
-            <input type="submit", value="Enviar">
-    
-        </form>
-        
+<form action="" method="GET">
+    {{busqueda_pro}}
+    <button type="submit">Buscar</button>
+</form>
 
-    
+{% if proveed %}
+    <ul>
+    {% for proveedor in proveed %}
+        <li>{{proveedor.nombre}}</li>   
+    {% endfor %}
+    </ul>
+{% else %}
+    <h1> No hay busqueda con ese criterio !!</h1>
 
-    
+{% endif %}
+
 {% endblock %}
 
-<!--/mi_web/busqueda_proveedor   {% csrf_token %}   {% if busqueda_proveedores %}     {% endif %}  -->

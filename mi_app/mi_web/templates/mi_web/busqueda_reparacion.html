@@ -1,22 +1,23 @@
 {% extends 'mi_web/base.html' %}
 
 {% block cuerpo %}
-    <br>
-    <h1> Sistema de Busqueda de REPARACIONES en Base de Datos  </h1>
-    <br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        
-        {{busqueda_reparacion}}
-        
-        <button type="submit">enviar</button>
-        
-        </form>
-        
-    
-    
-    
+<h1>BUSQUEDA DE reparacion POR NOMBRE</h1>
+
+
+<form action="" method="GET">
+    {{busqueda_repara}}
+    <button type="submit">Buscar</button>
 </form>
-<h6> (Nota: Si su Busqueda no se encuentra en Base de Datos, no se Mostraran Resultados.) </h6>
-<br>   
+
+{% if reparaciones %}
+    <ul>
+    {% for reparacion in reparaciones %}
+        <li>{{reparacion.equipo}}</li>   
+    {% endfor %}
+    </ul>
+{% else %}
+    <h1> No hay reparaciones con ese criterio !!</h1>
+
+{% endif %}
+
 {% endblock %}

@@ -1,11 +1,16 @@
 Sistema de Administracion de Servicio Tecnico (S.A.S.T)
 funciones de listado de datos lista
 funciones de formulario para carga de datos en base de datos listo
-funciones de busqueda en proceso
+funciones de busqueda listas
 
 templates funcionales
-proveedores.html
-reparaciones.html
-repuestos.html
-templates de listados...
-el resto en proceso
+listando-repa/
+listando-repu/
+listando-clientes/
+listando_prov/
+reparaciones/
+proveedores/
+repuestos/
+busqueda-proveedor/
+busqueda-reparacion/
+busqueda-repuestos
